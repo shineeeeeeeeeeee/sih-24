@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objective Questions</title>
+    <link rel="stylesheet" href="round1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation">
+            <h2>Questions</h2>
+            <ul>
+                <li>
+                    <span class="status-icon" id="status-q2"><i class="fas fa-times"></i></span>
+                    <a href="#question1" class="nav-link">Question 1</a>
+                </li>
+                <li>
+                    <span class="status-icon" id="status-q2"><i class="fas fa-times"></i></span>
+                    <a href="#question2" class="nav-link">Question 2</a>
+                </li>
+                <li>
+                    <span class="status-icon" id="status-q3"><i class="fas fa-times"></i></span>
+                    <a href="#question3" class="nav-link">Question 3</a>
+                </li>
+                <li>
+                    <span class="status-icon" id="status-q4"><i class="fas fa-times"></i></span>
+                    <a href="#question4" class="nav-link">Question 4</a>
+                </li>
+                <li>
+                    <span class="status-icon" id="status-q5"><i class="fas fa-times"></i></span>
+                    <a href="#question5" class="nav-link">Question 5</a>
+                </li>
+            </ul>
+        </nav>
+        
+
+
+        <main class="questions">
+            <div id="question1" class="question">
+                
+                <h3>Question 1: What is the capital of France?</h3>
+                <label><input type="radio" name="q1" value="A"> A) Berlin</label><br>
+                <label><input type="radio" name="q1" value="B"> B) Madrid</label><br>
+                <label><input type="radio" name="q1" value="C"> C) Paris</label><br>
+                <label><input type="radio" name="q1" value="D"> D) Rome</label>
+                <div class="navigation-buttons">
+                    <button class="back" onclick="navigate(-1)">Back</button>
+                    <button class="next" onclick="submitAnswer(1)">Submit/Next</button>
+                </div>
+            </div>
+
+            <div id="question2" class="question">
+                
+                <h3>Question 2: Which planet is known as the Red Planet?</h3>
+                <label><input type="radio" name="q2" value="A"> A) Earth</label><br>
+                <label><input type="radio" name="q2" value="B"> B) Mars</label><br>
+                <label><input type="radio" name="q2" value="C"> C) Jupiter</label><br>
+                <label><input type="radio" name="q2" value="D"> D) Venus</label>
+                <div class="navigation-buttons">
+                    <button class="back" onclick="navigate(-1)">Back</button>
+                    <button class="next" onclick="submitAnswer(2)">Submit/Next</button>
+                </div>
+            </div>
+
+            <div id="question3" class="question">
+                
+                <h3>Question 3: Who wrote 'Hamlet'?</h3>
+                <label><input type="radio" name="q3" value="A"> A) Charles Dickens</label><br>
+                <label><input type="radio" name="q3" value="B"> B) Mark Twain</label><br>
+                <label><input type="radio" name="q3" value="C"> C) William Shakespeare</label><br>
+                <label><input type="radio" name="q3" value="D"> D) J.K. Rowling</label>
+                <div class="navigation-buttons">
+                    <button class="back" onclick="navigate(-1)">Back</button>
+                    <button class="next" onclick="submitAnswer(3)">Submit/Next</button>
+                </div>
+            </div>
+
+            <div id="question4" class="question">
+                
+                <h3>Question 4: What is the largest ocean on Earth?</h3>
+                <label><input type="radio" name="q4" value="A"> A) Atlantic Ocean</label><br>
+                <label><input type="radio" name="q4" value="B"> B) Indian Ocean</label><br>
+                <label><input type="radio" name="q4" value="C"> C) Arctic Ocean</label><br>
+                <label><input type="radio" name="q4" value="D"> D) Pacific Ocean</label>
+                <div class="navigation-buttons">
+                    <button class="back" onclick="navigate(-1)">Back</button>
+                    <button class="next" onclick="submitAnswer(4)">Submit/Next</button>
+                </div>
+            </div>
+
+            <div id="question5" class="question">
+                
+                <h3>Question 5: What is the chemical symbol for water?</h3>
+                <label><input type="radio" name="q5" value="A"> A) CO2</label><br>
+                <label><input type="radio" name="q5" value="B"> B) H2O</label><br>
+                <label><input type="radio" name="q5" value="C"> C) O2</label><br>
+                <label><input type="radio" name="q5" value="D"> D) NaCl</label>
+                <div class="navigation-buttons">
+                    <button class="back" onclick="navigate(-1)">Back</button>
+                    <button class="next" onclick="submitAnswer(5)">Submit/Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="round1.js"></script>
+</body>
+</html>
