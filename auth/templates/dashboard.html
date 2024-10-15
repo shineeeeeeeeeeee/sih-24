@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background: #35424a;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .welcome, .login-prompt {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dashboard</h1>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+<div class="container">
+    {% if name %}
+        <div class="welcome">
+            <h2>Welcome, {{ name }}!</h2>
+            <p>You are successfully logged in.</p>
+            <a href="/logout" class="btn btn-dark">Logout</a>
+        </div>
+    {% else %}
+        <div class="login-prompt">
+            <h2>Please log in to access your account.</h2>
+            <a href="/login" class="btn btn-primary">Login /</a>
+            <a href="/register" class="btn btn-primary"> Register</a>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
