@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objective Questions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation">
+            <h2>Questions</h2>
+            <ul>
+                {% for question in questions %}
+                    <li>
+                        <span class="status-icon"><i class="fas fa-times"></i></span>
+                        <a href="#question{{ loop.index }}" class="nav-link">Question {{ loop.index }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        
+        <main class="questions">
+            {% for question in questions %}
+                <div id="question{{ loop.index }}" class="question">
+                    <h3>Question {{ loop.index }}: {{ question.question }}</h3>
+                    {% for option in question.options %}
+                        <label>
+                            <input type="radio" name="q{{ loop.index }}" value="{{ option }}"> {{ option }}
+                        </label><br>
+                    {% endfor %}
+                    <div class="navigation-buttons">
+                        <button class="back" onclick="navigate(-1)">Back</button>
+                        <button class="next" onclick="submitAnswer()">Submit/Next</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </main>
+        
+        <!-- Score Display Section -->
+        <div id="scoreDisplay" style="display: none; margin-top: 20px;">
+            <h2>Your Score: <span id="scoreValue"></span></h2>
+            <button onclick="resetQuiz()">Retake Quiz</button>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+</body>
+</html>

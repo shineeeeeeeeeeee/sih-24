@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question {{ question_number + 1 }} of {{ total }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            background-color: #2c3e50;
+            width: 250px;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            color: #ecf0f1;
+            font-size: 24px;
+        }
+
+        .sidebar nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            background-color: #34495e;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar nav ul li a:hover {
+            background-color: #1abc9c;
+        }
+
+        .sidebar-footer {
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Main quiz content styling */
+        .content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .content h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 300px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 5px; /* Add margin between buttons */
+        }
+
+        button:hover {
+            background-color: #1a5f85;
+        }
+
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar navigation -->
+    <div class="sidebar">
+        <div>
+            <h2>Quiz Navigator</h2>
+            <nav>
+                <ul>
+                    {% for i in range(total) %}
+                    <li><a href="{{ url_for('question', question_number=i) }}" class="{% if question_number == i %}active{% endif %}">Question {{ i + 1 }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+        <div class="sidebar-footer">
+            &copy; SIH-24 TechSaga
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Question {{ question_number + 1 }} of {{ total }}</h1>
+
+        <form method="POST">
+            <div class="question">
+                <h3>{{ question['question'] }}</h3>
+                {% for option in question['options'] %}
+                <label>
+                    <input type="radio" name="answer" value="{{ option }}" required> {{ option }}
+                </label>
+                {% endfor %}
+            </div>
+
+            <div class="navigation-buttons">
+                {% if question_number > 0 %}
+                <button type="submit" formaction="{{ url_for('question', question_number=question_number-1) }}">Back</button>
+                {% endif %}
+
+                {% if question_number < total - 1 %}
+                <button type="submit">Next</button>
+                {% else %}
+                <button type="submit">Submit Quiz</button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
